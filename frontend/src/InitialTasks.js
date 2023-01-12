@@ -18,6 +18,7 @@ const initialTasks = [
         id: 4,
         title: 'Learn React.js and Build a task app',
         completed: false,
+    {
     }
 ];
 
