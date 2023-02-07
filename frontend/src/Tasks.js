@@ -8,6 +8,7 @@ import initialTasks from './InitialTasks';
 
 function Tasks() {
   const [tasks, setTasks] = useState(initialTasks);
+  const [showntasks, setShowntasks] = useState("alltasks");
 
   const TODO_BASE_URL = 'http://localhost:3000/todos';
 
@@ -84,27 +85,40 @@ function Tasks() {
     <>
       <div className="Tasks">
         <h1>Tasks</h1>
+        <div>
+          <button className='task-button showbuttons' onClick={() => setShowntasks("alltasks")}>show all</button>
+          <button className='task-button showbuttons' onClick={() => setShowntasks("completedtasks")}>show completed</button>
+          <button className='task-button showbuttons' onClick={() => setShowntasks("incompletedtasks")}>show incompleted</button>
+        </div>
+        <div>
+          <TodoForm addTodo={addTodo} />
+        </div>
         <table>
           <thead>
             <tr>
-              <th>Todo ID</th>
-              <th>Title</th>
-              <th>Completed</th>
-              <th>Actions</th>
+              <th style={{ width: '10%' }}>Todo ID</th>
+              <th style={{ width: '50%' }}>Title</th>
+              <th style={{ width: '20%' }}>Completed</th>
+              <th style={{ width: '20%' }}>Actions</th>
             </tr>
           </thead>
 
           <tbody>
-            {tasks.map((todo) => {
+            {tasks.filter((task) => {
+              if (showntasks === 'alltasks') {
+                return true;
+              } else if (showntasks === 'completedtasks') {
+                return task.completed === true;
+              } else if (showntasks === 'incompletedtasks') {
+                return task.completed === false;
+              }
+            }).map((todo) => {
               return <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} setTodoCompleted={setTodoCompleted} />
             })}
           </tbody>
         </table>
       </div>
 
-      <div>
-        <TodoForm addTodo={addTodo} />
-      </div>
     </>
   );
 }

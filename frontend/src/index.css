@@ -3,6 +3,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  background-image: url("images/OrangeBlueBackground.jpg");
+  text-align: center;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -16,23 +19,42 @@ table {
   width: 100%;
 }
 
-td, th {
-  border: 1px solid #ddd;
-  padding: 8px;
+td,
+th {
+  border: 1px solid #000;
+  padding: 5px;
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #ffab66;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffca9e;
 }
 
 tr:hover {
-  background-color: #ddd;
+  background-color: #FFF;
 }
 
 th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #723d46;
+  background-color: orangered;
+  color: white;
+}
+
+.showbuttons {
+  background-color: orange;
+}
+
+h1 {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 4em;
+}
+
+h1, h3 {
   color: white;
 }

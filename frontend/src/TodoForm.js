@@ -13,7 +13,7 @@ function TodoForm(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Add a new task</h1>
+      <h3>Add a new task</h3>
 
       <input
         type="text"
@@ -21,7 +21,7 @@ function TodoForm(props) {
         placeholder="What needs to be done?"
       />
 
-      <button type="submit">Add</button>
+      <button className='showbuttons' type="submit">Add</button>
     </form>
   );
 }
